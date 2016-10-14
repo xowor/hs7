@@ -1,0 +1,49 @@
+.mixed-list {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+
+  .mixed-list-tags, .mixed-list-docs {
+    padding: 4px 4px 6px 4px;
+    border: 1px solid @neutral-color-dark-20;
+    background-color: @neutral-color-dark-10;
+    color: @neutral-color-light-60;
+  }
+
+  .mixed-list-tags {
+    border-bottom: none;
+    border-top-left-radius: @border-radius-medium;
+    border-top-right-radius: @border-radius-medium;
+  }
+
+  .tag {
+    margin-right: 2px;
+    margin-left: 2px;
+    cursor: pointer;
+  }
+
+  .documents-list-item {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 8px 0px;
+    cursor: pointer;
+
+    i {
+      margin-right: 5px;
+      align-self: baseline;
+      min-width: 48px;
+    }
+
+    .documents-list-item-content {
+      .title {
+        font-size: 1.1em;
+        margin-bottom: 4px;
+      }
+      .synopsis {
+        font-weight: 300;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@page-transition-time: .2s;
+@page-transition-easing: ease-in-out;
+
+
+.page-transition-absolute-enter {
+  transition: opacity @page-transition-time @page-transition-easing;
+  opacity: 0;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+.page-transition-absolute-enter.page-transition-absolute-enter-active {
+  opacity: 1;
+  z-index: 100;
+}
+.page-transition-absolute-appear {
+  transition: opacity @page-transition-time @page-transition-easing;
+  opacity: 0;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+.page-transition-absolute-appear.page-transition-absolute-appear-active {
+  opacity: 1;
+  z-index: 100;
+}
+.page-transition-absolute-leave {
+  transition-delay: @page-transition-time;
+  transition: opacity @page-transition-time @page-transition-easing;
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 0;
+}
+.page-transition-absolute-leave.page-transition-absolute-leave-active {
+  opacity: 0;
+  z-index: 0;
+}
+
+
+
+.page-transition-relative-enter {
+  transition: opacity @page-transition-time @page-transition-easing;
+  opacity: 0;
+  z-index: 100;
+  position: relative;
+  width: 100%;
+  top: 0;
+}
+
+.page-transition-relative-enter.page-transition-relative-enter-active {
+  opacity: 1;
+  z-index: 100;
+}
+
+.page-transition-relative-appear {
+  transition: opacity @page-transition-time @page-transition-easing;
+  opacity: 0;
+  z-index: 100;
+  position: relative;
+  width: 100%;
+  top: 0;
+}
+
+.page-transition-relative-appear.page-transition-relative-appear-active {
+  opacity: 1;
+  z-index: 100;
+}
+
+.page-transition-relative-leave {
+  transition-delay: @page-transition-time;
+  transition: opacity @page-transition-time @page-transition-easing;
+  opacity: 1;
+  position: relative;
+  width: 100%;
+  top: 0;
+  z-index: 0;
+}
+
+.page-transition-relative-leave.page-transition-relative-leave-active {
+  opacity: 0;
+  z-index: 0;
+}

@@ -1,0 +1,45 @@
+.tag-documents {
+  display: flex;
+    height: 100%;
+
+  .tag-documents-title {
+    border-bottom: 1px solid @neutral-color-dark-25;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-height: 40px;
+    min-height: 40px;
+    font-size: 1.2em;
+
+    p {
+      width: 100%;
+      text-align: center;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 8px;
+      color: @neutral-color-light-70;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  .documents-list {
+    background-color: @neutral-color-dark-20;
+    color: desaturate(@neutral-color-light-70, 35%);
+    height: 100%;
+    min-width: 400px;
+    max-width: 400px;
+    border-right: 1px solid @neutral-color-dark-25;
+  }
+
+  >.content {
+    background-color: @neutral-color-dark-20;
+    display: flex;
+    flex: 2 1 auto;
+    flex-direction: column;
+    position: relative;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "database": {
+    "url": "http://localhost:5984/test"
+  }
+}

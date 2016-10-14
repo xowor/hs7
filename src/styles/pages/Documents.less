@@ -1,0 +1,23 @@
+.page-documents {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+
+  .content-left {
+    min-width: 400px;
+    max-width: 400px;
+    height: 100%;
+    background-color: @neutral-color-dark-20;
+    color: desaturate(@neutral-color-light-70, 35%);
+    border-right: 1px solid @neutral-color-dark-25;
+  }
+
+  .content-right {
+    background-color: @neutral-color-dark-20;
+    display: flex;
+    flex: 2 1 auto;
+    flex-direction: column;
+  }
+}

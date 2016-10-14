@@ -1,0 +1,49 @@
+@import "./font.less";
+@import "./elements.less";
+
+
+// Colors
+@base-accent-color: #423075;
+@light-accent-color: lighten(@base-accent-color, 50%);
+@neutral-color: desaturate(@base-accent-color, 30%);
+@neutral-color-dark-25: darken(@neutral-color, 25%);
+@neutral-color-dark-20: darken(@neutral-color, 20%);
+@neutral-color-dark-15: darken(@neutral-color, 15%);
+@neutral-color-dark-10: darken(@neutral-color, 10%);
+@neutral-color-dark-5: darken(@neutral-color, 5%);
+@neutral-color-light-10: lighten(@neutral-color, 10%);
+@neutral-color-light-20: lighten(@neutral-color, 20%);
+@neutral-color-light-30: lighten(@neutral-color, 30%);
+@neutral-color-light-40: lighten(@neutral-color, 40%);
+@neutral-color-light-50: lighten(@neutral-color, 50%);
+@neutral-color-light-60: lighten(@neutral-color, 60%);
+@neutral-color-light-70: lighten(@neutral-color, 70%);
+
+// Borders
+@border-radius-small: 2px;
+@border-radius-medium: 2px;
+@border-radius-wide: 10px;
+@document-editor-separator: 1px solid @light-accent-color;
+
+
+// Durations
+@fast-duration: 0.2s;
+
+// Layout
+@navbar-size: 80px;
+
+
+// Fonts
+@font-family: Lato;
+
+
+
+// Navbar
+@navbar-bg: @neutral-color-dark-25;
+@navbar-text-color: @neutral-color-light-50;
+@navbar-padding-hor: 10px;
+@navbar-padding-ver: 8px;
+@navbar-entry-font-size: 2em;
+@navbar-entry-border-radius: @navbar-size;
+@navbar-entry-bg: transparent;
+@navbar-entry-bg-hover: rgba(255,255,255,0.1);

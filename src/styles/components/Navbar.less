@@ -1,0 +1,32 @@
+#navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: @navbar-bg;
+
+  @navbar-entry-size: @navbar-size - (2 * @navbar-padding-hor);
+
+  .navbar-entry {
+    flex: 0 1 auto;
+    background-color: @navbar-entry-bg;
+    width: @navbar-entry-size;
+    height: @navbar-entry-size;
+    margin-top: @navbar-padding-ver;
+    font-size: @navbar-entry-font-size;
+    border-radius: @navbar-entry-border-radius;
+    text-align: center;
+    transition: background-color linear @fast-duration;
+    cursor: pointer;
+
+    .fa {
+      line-height: @navbar-entry-size;
+      vertical-align: middle;
+      color: @navbar-text-color;
+    }
+  }
+
+  .navbar-entry:hover {
+    background-color: @navbar-entry-bg-hover;
+    transition: background-color linear @fast-duration;
+  }
+}

@@ -1,0 +1,29 @@
+.documents-list {
+  display: flex;
+  flex-direction: column;
+
+  .documents-list-item {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 8px 0px;
+    cursor: pointer;
+
+    i {
+      margin-right: 5px;
+      align-self: baseline;
+      min-width: 48px;
+    }
+
+    .documents-list-item-content {
+      .title {
+        font-size: 1.1em;
+        margin-bottom: 4px;
+      }
+      .synopsis {
+        font-weight: 300;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
