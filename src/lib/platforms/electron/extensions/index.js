@@ -14,7 +14,13 @@ const extensionManager = {
     }
   },
   sagas: [],
-  reducers: []
+  reducers: [],
+  middlewares: {
+    document: {
+      read: [],
+      write: []
+    }
+  }
 }
 
 
@@ -86,14 +92,20 @@ module.exports.load = () => {
     .then(() => {
       for (let i = 0; i < extensionManager.extensions.length; i++) {
         console.log(extensionManager.extensions[i]);
-        extensionManager.components.navbar.beforeButtons = extensionManager.components.navbar.beforeButtons.concat(extensionManager.extensions[i].extension.components.navbar.beforeButtons || [])
-        extensionManager.components.navbar.buttons = extensionManager.components.navbar.buttons.concat(extensionManager.extensions[i].extension.components.navbar.buttons || [])
-        extensionManager.components.navbar.afterButtons = extensionManager.components.navbar.afterButtons.concat(extensionManager.extensions[i].extension.components.navbar.afterButtons || [])
+        if (extensionManager.extensions[i].extension.components) {
+          extensionManager.components.navbar.beforeButtons = extensionManager.components.navbar.beforeButtons.concat(extensionManager.extensions[i].extension.components.navbar.beforeButtons || [])
+          extensionManager.components.navbar.buttons = extensionManager.components.navbar.buttons.concat(extensionManager.extensions[i].extension.components.navbar.buttons || [])
+          extensionManager.components.navbar.afterButtons = extensionManager.components.navbar.afterButtons.concat(extensionManager.extensions[i].extension.components.navbar.afterButtons || [])
+        }
         if (extensionManager.extensions[i].extension.sagas) {
           extensionManager.sagas = extensionManager.sagas.concat(extensionManager.extensions[i].extension.sagas)
         }
         if (extensionManager.extensions[i].extension.reducer) {
           extensionManager.reducers[`ext_${extensionManager.extensions[i].name}`] = extensionManager.extensions[i].extension.reducer
+        }
+        if (extensionManager.extensions[i].extension.middlewares) {
+          extensionManager.middlewares.document.read = extensionManager.middlewares.document.read.concat(extensionManager.extensions[i].extension.middlewares.document.read || [])
+          extensionManager.middlewares.document.write = extensionManager.middlewares.document.write.concat(extensionManager.extensions[i].extension.middlewares.document.write || [])
         }
       }
     })
@@ -110,4 +122,8 @@ module.exports.sagas = () => {
 
 module.exports.reducers = () => {
   return extensionManager.reducers
+}
+
+module.exports.middlewares = () => {
+  return extensionManager.middlewares
 }

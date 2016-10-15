@@ -9,6 +9,11 @@ import {
   fetchCatch
 } from '../lib/logger'
 
+import {
+  readDocumentMiddleware,
+  writeDocumentMiddleware
+} from '../lib/middlewares/document'
+
 
 function readDocumentsFetch() {
   return db
@@ -31,7 +36,7 @@ function* readDocuments() {
 
 
 function createEmptyDocumentFetch(title, docType) {
-  const doc = {
+  const doc = writeDocumentMiddleware({
     // _id: uuid.v4(),
     title: title || 'New document',
     docType: docType || 'text',
@@ -41,7 +46,7 @@ function createEmptyDocumentFetch(title, docType) {
     content: '',
     created: (new Date()).toISOString(),
     edited: (new Date()).toISOString()
-  }
+  })
 
   return db
     .post(doc)
@@ -64,6 +69,7 @@ function* createEmptyDocument(action) {
 function readDocumentFetch(id) {
   return db
     .get(id)
+    .then(readDocumentMiddleware)
     .catch(fetchCatch)
 }
 
@@ -79,6 +85,7 @@ function* readDocument(action) {
 
 function updateDocumentFetch(doc) {
   doc.edited = (new Date()).toISOString()
+  doc = writeDocumentMiddleware(doc)
 
   return db
     .put(doc)

@@ -12,5 +12,5 @@ function fetchLog(result) {
 }
 
 function fetchCatch(err) {
-  console.error(err);
+  throw err;
 }

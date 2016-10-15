@@ -17,6 +17,8 @@ var _db = require('../db');
 
 var _logger = require('../lib/logger');
 
+var _document = require('../lib/middlewares/document');
+
 var _marked = [readDocuments, createEmptyDocument, readDocument, updateDocument, removeDocument, watchReadDocuments, watchCreateEmptyDocument, watchReadDocument, watchUpdateDocument, watchRemoveDocument].map(regeneratorRuntime.mark);
 // import fetch from 'isomorphic-fetch'
 // import * as actions from '../actions'
@@ -59,7 +61,7 @@ function readDocuments() {
 }
 
 function createEmptyDocumentFetch(title, docType) {
-  var doc = {
+  var doc = (0, _document.writeDocumentMiddleware)({
     // _id: uuid.v4(),
     title: title || 'New document',
     docType: docType || 'text',
@@ -69,7 +71,7 @@ function createEmptyDocumentFetch(title, docType) {
     content: '',
     created: new Date().toISOString(),
     edited: new Date().toISOString()
-  };
+  });
 
   return _db.db.post(doc).then(function (response) {
     return { _id: response.id };
@@ -102,7 +104,7 @@ function createEmptyDocument(action) {
 }
 
 function readDocumentFetch(id) {
-  return _db.db.get(id).catch(_logger.fetchCatch);
+  return _db.db.get(id).then(_document.readDocumentMiddleware).catch(_logger.fetchCatch);
 }
 
 function readDocument(action) {
@@ -132,6 +134,7 @@ function readDocument(action) {
 
 function updateDocumentFetch(doc) {
   doc.edited = new Date().toISOString();
+  doc = (0, _document.writeDocumentMiddleware)(doc);
 
   return _db.db.put(doc).then(function () {
     return readDocumentFetch(doc._id);

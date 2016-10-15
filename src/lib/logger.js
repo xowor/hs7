@@ -5,5 +5,5 @@ export function fetchLog(result) {
 }
 
 export function fetchCatch(err) {
-  console.error(err)
+  throw err
 }
