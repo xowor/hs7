@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "GPL-3",
@@ -44,7 +44,6 @@
     "font-awesome": "^4.6.3",
     "font-awesome-webpack": "0.0.4",
     "marked": "^0.3.6",
-    "material-ui": "^0.15.4",
     "mousetrap": "^1.6.0",
     "node-uuid": "^1.4.7",
     "pouchdb": "^6.0.5",

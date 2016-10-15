@@ -43,10 +43,6 @@ platform.config.read()
     ))
 
     sagaMiddleware.run(rootSaga)
-    //
-    // import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-    // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-    // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 
     // Create an enhanced history that syncs navigation events with the store
