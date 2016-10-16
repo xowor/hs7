@@ -1,7 +1,15 @@
+import { startupSubLog } from '../../logger'
+
 const fs = require('fs')
 const path = require('path')
 
-let config = { }
+
+let config = {
+  database: {
+
+  }
+}
+
 const configFilePath = `${__dirname}/../../../../../config/config.json`
 
 module.exports.read = () => {
@@ -10,12 +18,14 @@ module.exports.read = () => {
       if (err) {
         reject(err)
       } else {
-        config = JSON.parse(data)
-        console.log(config);
+        config = Object.assign(config, JSON.parse(data))
         resolve(config)
       }
     })
   })
+  .then(() => Promise.all([
+    startupSubLog(`Remote database URL: ${config.database.url}`)
+  ]))
 }
 
 module.exports.config = () => {

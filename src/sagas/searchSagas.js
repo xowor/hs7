@@ -14,7 +14,7 @@ const searchParams = (query) => {
   return {
     include_docs: false,
     start_key: query,
-    end_key: `${query}Z`,
+    end_key: `${query}~`,
     inclusive_end: true,
     limit: 10
   }

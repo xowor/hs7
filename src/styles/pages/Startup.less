@@ -1,0 +1,112 @@
+.page-startup {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  align-items: center;
+  color: @neutral-color-light-50;
+
+  >div {
+    width: 100%;
+  }
+
+
+  .startup-loader,
+  .startup-loader-figure {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .startup-loader {
+    overflow: visible;
+    padding-top: 0em;
+    height: 15em;
+    width: 100%;
+    display: block;
+  }
+
+  .startup-loader-figure {
+    height: 0;
+    width: 0;
+    box-sizing: border-box;
+    border: 0 solid @neutral-color-light-50;
+    border-radius: 50%;
+    -webkit-animation: loader-figure 1.5s infinite cubic-bezier(0.07, 0.6, 0.63, 0.63);
+    -moz-animation: loader-figure 1.5s infinite cubic-bezier(0.07, 0.6, 0.63, 0.63);
+    animation: loader-figure 1.5s infinite cubic-bezier(0.07, 0.6, 0.63, 0.63);
+  }
+
+  .startup-loader-figure-b {
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+  }
+
+  .startup-loader-figure-c {
+    -webkit-animation-delay: 0.10s;
+    animation-delay: 0.10s;
+  }
+
+  .startup-loader-label {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+  }
+
+  @-webkit-keyframes loader-figure {
+    0% {
+      height: 0.5em;
+      width: 0.5em;
+      border-width: 0.15em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    100% {
+      height: 8em;
+      width: 8em;
+      opacity: 0;
+    }
+  }
+  @-moz-keyframes loader-figure {
+    0% {
+      height: 0.5em;
+      width: 0.5em;
+      border-width: 0.15em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    100% {
+      height: 8em;
+      width: 8em;
+      opacity: 0;
+    }
+  }
+  @keyframes loader-figure {
+    0% {
+      height: 0.5em;
+      width: 0.5em;
+      border-width: 0.15em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    100% {
+      height: 8em;
+      width: 8em;
+      opacity: 0;
+    }
+  }
+}

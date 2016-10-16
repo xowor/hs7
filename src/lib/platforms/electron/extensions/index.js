@@ -1,5 +1,8 @@
+import { startupSubLog } from '../../../logger'
+
 const fs = require('fs')
 const path = require('path')
+
 
 const extRoot = `${__dirname}/../../../../extensions`
 
@@ -59,7 +62,10 @@ module.exports.load = () => {
       return dirs.filter((dir) => { return !!dir })
     })
     .then((dirs) => {
-      console.log(dirs);
+      return startupSubLog(`Found ${dirs.length} extensions`)
+      .then(() => dirs )
+    })
+    .then((dirs) => {
       return Promise.all(dirs.map((dir) => {
         return new Promise((resolve, reject) => {
           let ext = null
@@ -74,8 +80,12 @@ module.exports.load = () => {
             extension: ext
           })
         })
+          .then((ext) => {
+            return startupSubLog(`Loaded "${ext.name}" extension`)
+              .then(() => ext)
+          })
           .catch((err) => {
-            console.error(`Failed loading extension "${dir}": ${err}`)
+            return startupSubLog(`Failed loading extension "${dir}": ${err}`)
             throw err
           })
       }))
@@ -91,7 +101,6 @@ module.exports.load = () => {
     })
     .then(() => {
       for (let i = 0; i < extensionManager.extensions.length; i++) {
-        console.log(extensionManager.extensions[i]);
         if (extensionManager.extensions[i].extension.components) {
           extensionManager.components.navbar.beforeButtons = extensionManager.components.navbar.beforeButtons.concat(extensionManager.extensions[i].extension.components.navbar.beforeButtons || [])
           extensionManager.components.navbar.buttons = extensionManager.components.navbar.buttons.concat(extensionManager.extensions[i].extension.components.navbar.buttons || [])
@@ -109,7 +118,6 @@ module.exports.load = () => {
         }
       }
     })
-    .then(() => console.log(extensionManager))
 }
 
 module.exports.components = () => {

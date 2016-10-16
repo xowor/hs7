@@ -7,7 +7,16 @@
         <link rel="stylesheet" href="./styles/extensions.css"></link>
     </head>
     <body>
-        <div id="root"></div>
+        <div id="root">
+          <div class="page-startup">
+            <div class="startup-loader">
+              <div class="startup-loader-figure"></div>
+              <div class="startup-loader-figure startup-loader-figure-b"></div>
+              <div class="startup-loader-figure startup-loader-figure-c"></div>
+              <p class="startup-loader-label">Starting up...</p>
+            </div>
+          </div>
+        </div>
         <script>
           require('babel-polyfill');
           require('./entry.js');

@@ -19,6 +19,6 @@ let reducers = {
   ui: uiReducer
 }
 
-console.log(Object.assign(reducers, platform.extensions.reducers()));
+// console.log(Object.assign(reducers, platform.extensions.reducers()));
 
 export default combineReducers(Object.assign(reducers, platform.extensions.reducers()))

@@ -28,7 +28,7 @@ const readTopicParams = (topicTitle) => {
   return {
     include_docs: true,
     start_key: topicTitle,
-    end_key: `${topicTitle}Z`
+    end_key: `${topicTitle}~`
   }
 }
 

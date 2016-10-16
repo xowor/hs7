@@ -41,7 +41,7 @@ export default function* rootSaga() {
     watchSearch()
   ].concat(platform.extensions.sagas())
 
-  console.log(sagas);
+  // console.log(sagas);
 
   yield sagas
 }

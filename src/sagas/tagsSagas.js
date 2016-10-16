@@ -33,7 +33,7 @@ const readTagParams = (tagsTitle) => {
     include_docs: true,
     reduce: false,
     start_key: tagsTitle,
-    end_key: `${tagsTitle}Z`
+    end_key: `${tagsTitle}~`
   }
 }
 
