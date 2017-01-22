@@ -9,7 +9,7 @@ const DocumentListItem = React.createClass({
       _id: React.PropTypes.string,
       docType: React.PropTypes.string.isRequired,
       title: React.PropTypes.string.isRequired,
-      synopsis: React.PropTypes.string.isRequired,
+      synopsis: React.PropTypes.string,
       content: React.PropTypes.string.isRequired,
       tags: React.PropTypes.array.isRequired
     }).isRequired,

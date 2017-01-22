@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { platform } from '../../lib/platforms/platform'
 
-console.log(platform.extensions.components().navbar);
-const beforeButtons = platform.extensions.components().navbar.beforeButtons.map((Component) => {
+// console.log(platform.extensions.components().navbar);
+const beforeButtons = platform.extensions.components().navbar.beforeButtons.map((Component, i) => {
   return (
-    <Component />
+    <Component key={ i } />
   )
 })
-console.log(beforeButtons);
+// console.log(beforeButtons);
 
 const Navbar = (props) =>
   <div id="navbar">

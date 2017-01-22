@@ -2,3 +2,5 @@ node_modules
 
 dist/*/**
 old/
+
+npm-debug.log

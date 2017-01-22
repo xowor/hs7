@@ -29,7 +29,6 @@ const SearchInput = React.createClass({
     return (
       <div id="search-dialog-input-box">
         <input
-          hintText="Hint Text"
           onChange={ this.props.onChange }
           ref={ (node) => this.input = node }
         />
