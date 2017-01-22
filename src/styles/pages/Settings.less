@@ -1,0 +1,50 @@
+.page-settings {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+
+  .content-left {
+    min-width: 200px;
+    max-width: 200px;
+    height: 100%;
+    background-color: @neutral-color-dark-20;
+    color: desaturate(@neutral-color-light-70, 35%);
+    border-right: 1px solid @neutral-color-dark-25;
+
+    .entries-list {
+      display: flex;
+      flex-direction: column;
+
+      .entries-list-item, .entries-list-item:hover, .entries-list-item:active {
+        display: flex;
+        flex-direction: row;
+        padding: 18px 10px;
+        cursor: pointer;
+        color: @neutral-color-light-70;
+        text-decoration: none;
+
+        i {
+          margin-right: 5px;
+          align-self: baseline;
+          min-width: 48px;
+        }
+
+        &.active {
+          background-color: @neutral-color-dark-25;
+        }
+      }
+    }
+
+  }
+
+  .content-right {
+    background-color: @neutral-color-dark-20;
+    display: flex;
+    flex: 2 1 auto;
+    flex-direction: column;
+    color: desaturate(@neutral-color-light-70, 35%);
+    padding: 0px 20px;
+  }
+}

@@ -3,6 +3,8 @@ import React from 'react'
 import { exExporterWatchTest } from './lib/sagas/exporterSagas'
 import { exporterReducer } from './lib/reducers/exporterReducer'
 
+import ExporterSettingsEntry from './lib/ExporterSettingsEntry'
+
 export const manifest = {
   'name': 'Exporter',
   'platforms': ['electron']
@@ -13,6 +15,13 @@ export const components = {
     beforeButtons: [],
     buttons: [],
     afterButtons: []
+  },
+  settings: {
+    entries: [{
+      id: 'exporter',
+      name: 'Exporter',
+      component: ExporterSettingsEntry
+    }]
   }
 }
 

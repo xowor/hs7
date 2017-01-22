@@ -14,5 +14,8 @@ export const components = {
     ],
     buttons: [],
     afterButtons: []
+  },
+  settings: {
+    entries: []
   }
 }

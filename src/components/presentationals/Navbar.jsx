@@ -46,6 +46,14 @@ const Navbar = (props) =>
         />
       </div>
     </Link>
+    <Link to="/settings/">
+      <div className="navbar-entry">
+        <i
+          aria-hidden="true"
+          className="fa fa-fw fa-gear"
+        />
+      </div>
+    </Link>
     <div
       className="navbar-entry"
       onClick={ () => {

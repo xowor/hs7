@@ -14,6 +14,9 @@ const extensionManager = {
       beforeButtons: [],
       buttons: [],
       afterButtons: []
+    },
+    settings: {
+      entries: []
     }
   },
   sagas: [],
@@ -105,6 +108,7 @@ module.exports.load = () => {
           extensionManager.components.navbar.beforeButtons = extensionManager.components.navbar.beforeButtons.concat(extensionManager.extensions[i].extension.components.navbar.beforeButtons || [])
           extensionManager.components.navbar.buttons = extensionManager.components.navbar.buttons.concat(extensionManager.extensions[i].extension.components.navbar.buttons || [])
           extensionManager.components.navbar.afterButtons = extensionManager.components.navbar.afterButtons.concat(extensionManager.extensions[i].extension.components.navbar.afterButtons || [])
+          extensionManager.components.settings.entries = extensionManager.components.settings.entries.concat(extensionManager.extensions[i].extension.components.settings.entries || [])
         }
         if (extensionManager.extensions[i].extension.sagas) {
           extensionManager.sagas = extensionManager.sagas.concat(extensionManager.extensions[i].extension.sagas)
